@@ -13,13 +13,17 @@
             <br /> <input type="submit" name="doAdd" value="Добавить!">
         </form>
         <h2>Гостевая книга:</h2>
-        <?php foreach ($Book as $id => $v) { ?>
-        Время: <?= date("d.m.Y H:i:s", $id) ?><br />
-        Имя: <?= $v['name'] ?><br />
+
+        <?php
+if (is_array($Book) && count($Book) > 0) {
+    foreach ($Book as $id => $v) {?>
+        Время: <?=date("d.m.Y H:i:s", $id)?><br />
+        Имя: <?=$v['name']?><br />
         Комментарий:<br />
-        <?= nl2br($v['text']) ?>
+        <?=nl2br($v['text'])?>
         <hr />
-        <?php } ?>
+        <?php }}
+?>
     </body>
 
     </html>
